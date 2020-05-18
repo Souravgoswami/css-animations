@@ -1,0 +1,107 @@
+<head>
+	<meta charset="utf-8">
+	<title><%= File.split(Dir.pwd).last %>: Scale</title>
+	<style>
+		.square {
+			padding: 120px ;
+			width: 60px ;
+			border-radius: 10px ;
+			display: block ;
+			border: 2px dashed #55f ;
+			background-color: #000 ;
+			transition: all 1s ;
+			transition-timing-function: ease ;
+		}
+
+		.container:hover #a {
+			transform: rotate(180deg) ;
+			transform-origin: top;
+		}
+
+		.container:hover #b {
+			transform: rotate(180deg) ;
+			transform-origin: bottom ;
+		}
+
+		.container:hover #c {
+			transform: rotate(180deg) ;
+			transform-origin: left ;
+		}
+		.container:hover #d {
+			transform: rotate(180deg) ;
+			transform-origin: right ;
+		}
+		.container:hover #e {
+			transform: rotate(180deg) ;
+			transform-origin: 20% 40% ;
+		}
+		.container:hover #f {
+			transform: rotate(180deg) ;
+			transform-origin: bottom right ;
+		}
+		.container:hover #g {
+			transform: rotate(180deg) ;
+			transform-origin: bottom left ;
+		}
+		.container:hover #h {
+			transform: rotate(180deg) ;
+			transform-origin: top right ;
+		}
+		.container:hover #i {
+			transform: rotate(180deg) ;
+			transform-origin: top left ;
+		}
+		.container:hover #j {
+			transform: rotate(180deg) ;
+			transform-origin: center ;
+		}
+		.container:hover #k {
+			transform: rotate(180deg) ;
+			transform-origin: 50% 50% ;
+		}
+		.container:hover #l {
+			transform: rotate(180deg) ;
+			transform-origin: 50% 100% ;
+		}
+		.container:hover #m {
+			transform: rotate(180deg) ;
+			transform-origin: 50px 50px ;
+		}
+
+		.container {
+			width: 50% ;
+			display: block ;
+			position: relative ;
+			text-align: center ;
+		}
+
+		.label {
+			position: absolute ;
+			font-size: 40px ;
+			transform: translate(-50%, -50%) ;
+			color: #f55 ;
+			left: 50% ;
+			top: 50% ;
+		}
+	</style>
+</head>
+
+<body>
+	<%
+		s = 96.chr
+
+		%w(
+			top bottom left right 20-40 bottom-right
+			bottom-left top-right top-left center
+			50%-50% 50%-100% 50px-50px
+		).each do |l|
+	%>
+		<div class="container">
+			<center>
+				<span class="square" id="<%= s.next! %>"></span>
+			</center>
+			<span class="label"><%= l %></span>
+		</div>
+		<br>
+	<% end %>
+</body>

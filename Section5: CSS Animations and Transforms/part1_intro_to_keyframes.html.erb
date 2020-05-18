@@ -1,0 +1,30 @@
+<head>
+	<title>Animation Part 1</title>
+	<meta charset="utf-8">
+	<style>
+		body {
+			margin: 0 ;
+		}
+
+		div {
+			background-color: #f5a ;
+			height: 150px ;
+			width: 150px ;
+			animation: moving 2s ;
+		}
+
+		@keyframes moving {
+			from {
+				transform: translateX(0) ;
+			}
+
+			to {
+				transform: translateX(1000px) ;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div></div>
+</body>

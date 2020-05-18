@@ -1,0 +1,53 @@
+<head>
+	<title>Car and Motorbike</title>
+	<meta charset="utf-8">
+	<style>
+		body {
+			margin: 0 ;
+			padding: 0 ;
+		}
+
+		.background {
+			height: 100vh ;
+			background: url(assets/bg.jpg) ;
+			background-position: bottom left ;
+			background-size: cover ;
+			animation: driving 20s linear infinite forwards ;
+		}
+
+		@keyframes driving {
+			from { background-position: bottom left ; }
+			to { background-position: bottom right ;}
+		}
+
+		#car {
+			position: fixed ;
+			left: 20vw ;
+			background: url(assets/car.png) ;
+			background-size: cover ;
+			bottom: -5vh ;
+			width: 32vh ;
+			height: 32vh ;
+			background-size: cover ;
+			background-position: center ;
+			background-size: cover ;
+		}
+
+		#motorbike {
+			position: fixed ;
+			left: 35vw ;
+			bottom: 5vh ;
+			width: 24vh ;
+			height: 24vh ;
+			background: url(assets/motorbike.png) ;
+			background-position: center ;
+			background-size: cover ;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="background"></div>
+	<div id="car"></div>
+	<div id="motorbike"></div>
+</body>

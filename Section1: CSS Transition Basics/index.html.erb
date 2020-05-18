@@ -1,0 +1,16 @@
+<head>
+	<meta charset="utf-8">
+	<title><%= File.split(Dir.pwd).last %></title>
+	<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+	<div class="container">
+		<% 'Ease % Linear % Ease-In % Ease-Out % Ease-In-Out'.split(?%).each_with_index do |x, i| %>
+			<div class="room">
+				<button id="b<%= i + 1 %>" class="move"><%= x %></button>
+			</div>
+			<br>
+		<% end %>
+	<div>
+</body>

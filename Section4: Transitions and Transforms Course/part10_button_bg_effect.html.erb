@@ -1,0 +1,53 @@
+<head>
+	<meta charset="utf-8">
+	<title>Button Hover Effect: 10</title>
+
+	<style>
+		body {
+			height: 100vh ;
+			display: flex ;
+			justify-content: center ;
+			place-items: center ;
+		}
+
+		.btn {
+			border: 3px solid #FFB800 ;
+			color: #FFB800 ;
+			background: none ;
+			overflow: hidden ;
+			padding: 40px 80px ;
+			position: relative ;
+			border-radius: 8px ;
+			font-size: 40px ;
+			font-family: alice ;
+			text-transform: uppercase ;
+			cursor: pointer ;
+			transition: all 0.5s ease ;
+		}
+
+		.btn::before {
+			content: '' ;
+			position: absolute ;
+			top: 0 ;
+			left: 0 ;
+			width: 100% ;
+			height: 0 ;
+			background-color: #FFB800 ;
+			z-index: -1 ;
+			border-radius: 0 0 50% 50% ;
+			transition: all 0.5s ease ;
+		}
+
+		.btn:hover::before {
+			height: 190% ;
+		}
+
+		.btn:hover {
+			color: #fff ;
+		}
+	</style>
+</head>
+
+<body>
+		<button class="btn">Button</button>
+</body>

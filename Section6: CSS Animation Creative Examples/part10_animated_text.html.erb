@@ -1,0 +1,38 @@
+<head>
+	<meta charset="utf-8">
+	<title>Animated Text</title>
+
+	<style>
+		body {
+			height: 100vh ;
+			display: flex ;
+			align-items: center ;
+			justify-content: center ;
+			background-color: #55d ;
+		}
+
+		h1 {
+			font-size: 80px ;
+			text-align: center ;
+			text-transform: uppercase ;
+			background-image: url('assets/image.jpg') ;
+			-webkit-background-clip: text ;
+			color: transparent ;
+			animation: textbackground 20s ease infinite ;
+		}
+
+		@keyframes textbackground {
+			from {
+				background-position: 0 0 ;
+			}
+
+			to {
+				background-position: 100% 100% ;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<h1>CSS Animation</h1>
+</body>

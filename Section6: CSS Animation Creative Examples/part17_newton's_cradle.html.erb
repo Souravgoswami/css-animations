@@ -1,0 +1,70 @@
+<head>
+	<meta charset="utf-8">
+	<title>Newton's Cradle</title>
+
+	<style>
+		body {
+			height: 100vh ;
+			display: flex ;
+			justify-content: center ;
+			align-items: center ;
+			background-color: #223
+		}
+
+		.cradle {
+			display: flex ;
+			flex-direction: row ;
+			border-top: 10px solid #fff ;
+		}
+
+		.cradle span {
+			display: block ;
+			width: 3px ;
+			height: 300px ;
+			margin: 0 29px ;
+			background-color: #fff ;
+			position: relative ;
+			transform-origin: top ;
+		}
+
+		.cradle span::before {
+			content: '' ;
+			position: absolute ;
+			bottom: 0 ;
+			left: 50% ;
+			width: 60px ;
+			height: 60px ;
+			background-color: #fff ;
+			border-radius: 50% ;
+			transform: translateX(-50%) ;
+		}
+
+		.cradle span:first-child {
+			animation: left-arm 2s ease-in infinite ;
+		}
+
+		.cradle span:last-child {
+			animation: right-arm 2s ease-in infinite 1s ;
+		}
+
+		@keyframes left-arm {
+			0%, 50%, 100% { transform: rotate(0deg) }
+			25% { transform: rotate(60deg) }
+		}
+
+		@keyframes right-arm {
+			0%, 50%, 100% { transform: rotate(0deg) }
+			25% { transform: rotate(-60deg) }
+		}
+	</style>
+</head>
+
+<body>
+	<div class="cradle">
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+	</div>
+</body>

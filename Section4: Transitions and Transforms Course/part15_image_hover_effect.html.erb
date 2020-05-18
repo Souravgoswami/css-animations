@@ -1,0 +1,69 @@
+<head>
+	<meta charset="utf-8">
+	<meta charset="utf-8">
+	<style>
+		body {
+			height: 100vh ;
+			display: flex ;
+			justify-content: center ;
+			align-items: center ;
+			font-family: alice ;
+		}
+
+		.container {
+			width: 500px ;
+			height: 500px ;
+			position: relative ;
+			overflow: hidden ;
+		}
+
+		img {
+			width: 100% ;
+			transition: all 0.25s ease ;
+		}
+
+		.caption {
+			position: absolute ;
+			top: 0 ;
+			left: 0 ;
+			height: 100% ;
+			width: 100% ;
+			color: #fff ;
+			display: flex ;
+			flex-direction: column ;
+			justify-content: center ;
+			align-items: center ;
+			opacity: 0 ;
+			transition: all 0.25s ease ;
+			background-color: rgba(0, 0, 0, 0.5) ;
+		}
+
+		.caption h1 {
+			text-transform: uppercase ;
+			margin: 0 ;
+		}
+
+		.caption p {
+			font-size: 18px ;
+			text-transform: capitalize ;
+		}
+
+		.container:hover .caption {
+			opacity: 1 ;
+		}
+
+		.container:hover img {
+			transform: scale(1.5) rotate(15deg) ;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<img src="assets/img.jpg">
+		<div class="caption">
+			<h1>Amazing Caption</h1>
+			<p>Donkey!!!</p>
+		</div>
+	</div>
+</body>

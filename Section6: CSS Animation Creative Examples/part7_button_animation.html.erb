@@ -1,0 +1,60 @@
+<head>
+	<title>Button Animation</title>
+	<meta charset="utf-8">
+	<style>
+		body {
+			height: 100vh ;
+			display: flex ;
+			justify-content: center ;
+			align-items: center ;
+			background-color: #222 ;
+		}
+
+		button {
+			color: #fff ;
+			font-family: alice ;
+			font-size: 40px ;
+			overflow: hidden ;
+			background-color: transparent ;
+			border: 3px solid #fff ;
+			border-radius: 8px ;
+			padding: 40px 80px ;
+			position: relative ;
+			transition: all 0.25s ease ;
+		}
+
+		button::before {
+			content: '' ;
+			background-color: #00A32C ;
+			position: absolute ;
+			top: 0 ;
+			left: 0 ;
+			width: 120px ;
+			height: 100% ;
+			z-index: -1 ;
+			transform: skew(-15deg) ;
+			animation: moving 1.2s linear infinite ;
+			transition: all 0.5s ease ;
+		}
+
+		button:hover::before {
+			width: 100% ;
+			transform: skew(0deg) ;
+			animation: none ;
+		}
+
+		@keyframes moving {
+			from {
+				left: -120px ;
+			}
+
+			to {
+				left: 100% ;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<button>Hover Me</button>
+</body>

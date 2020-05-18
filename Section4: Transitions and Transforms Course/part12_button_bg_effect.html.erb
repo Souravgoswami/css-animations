@@ -1,0 +1,77 @@
+<head>
+	<meta charset="utf-8">
+	<title>Button Hover Effect: 12</title>
+
+	<style>
+		body {
+			height: 100vh ;
+			display: flex ;
+			justify-content: center ;
+			align-items: center ;
+			font-family: alice ;
+		}
+
+		a {
+			position: relative ;
+			padding: 40px 80px ;
+			background-color: transparent ;
+			color: transparent ;
+			text-decoration: none ;
+			font-size: 40px ;
+			text-transform: capitalize ;
+			border: 3px solid #FF48C3 ;
+			letter-spacing: 4px ;
+			border-radius: 8px ;
+			overflow: hidden ;
+		}
+
+		a::before {
+			content: 'Button' ;
+			text-transform: capitalize ;
+			position: absolute ;
+			top: 0 ;
+			left: 0 ;
+			width: 100% ;
+			height: 100% ;
+			background-color: #FF48C3 ;
+			color: #fff ;
+			display: flex ;
+			justify-content: center ;
+			align-items: center ;
+			transition: all 1s ease ;
+		}
+
+		a::after {
+			content: 'Button' ;
+			text-transform: capitalize ;
+			position: absolute ;
+			top: 0 ;
+			left: -100% ;
+			width: 100% ;
+			height: 100% ;
+			background-color: #FF48C3 ;
+			color: #fff ;
+			display: flex ;
+			justify-content: center ;
+			transform: scale(0) ;
+			align-items: center ;
+			transition: all 1s ease ;
+		}
+
+		a:hover::before {
+			left: 100% ;
+			transform: scale(0) rotateY(1turn) ;
+			opacity: 0 ;
+		}
+
+		a:hover::after {
+			left: 0% ;
+			transform: scale(1.01) rotateY(1turn) ;
+			opacity: 1 ;
+		}
+	</style>
+</head>
+
+<body>
+		<a href="#">button</a>
+</body>

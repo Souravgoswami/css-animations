@@ -1,0 +1,59 @@
+<head>
+	<meta charset="utf-8">
+
+	<title>Button Hover Effect: 1</title>
+
+	<style>
+		body {
+			height: 100vh ;
+			display: flex ;
+			justify-content: center ;
+			align-items: center ;
+		}
+
+		a {
+			text-decoration: none ;
+			border-radius: 8px ;
+			color: #FFA726 ;
+			font-family: alice ;
+			font-size: 45px ;
+			border: 3px solid #FFA726 ;
+			padding: 40px 80px ;
+			overflow: hidden ;
+			position: relative ;
+			transition: all 0.5s ease-in-out ;
+		}
+
+		a::before {
+			content: "" ;
+			position: absolute ;
+			left: 0 ;
+			top: 0 ;
+			background-color: #FFA726 ;
+			height: 120% ;
+			width: 120% ;
+			z-index: -1 ;
+			transition: all 0.25s linear ;
+
+			/* transform-origin: top left ; */
+			/* transform: rotate(180deg) ; */
+
+			transform-origin: bottom left ;
+			transform: rotate(-180deg) ;
+
+			transition: transform 0.5s ease ;
+		}
+
+		a:hover::before {
+			transform: rotate(0deg) ;
+		}
+
+		a:hover {
+			color: #fff ;
+		}
+	</style>
+</head>
+
+<body>
+	<a href="#">Hover Me</a>
+</body>

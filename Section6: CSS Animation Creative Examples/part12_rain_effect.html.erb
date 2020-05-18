@@ -1,0 +1,40 @@
+<head>
+	<meta charset="utf-8">
+	<title>Rain Effect</title>
+
+	<style>
+		body {
+			position: fixed ;
+			padding: 0 ;
+			margin: 0 ;
+			background: url('assets/background_rain.jpg') ;
+			background-size: cover ;
+			background-repeat: no-repeat ;
+		}
+
+		.rain {
+			height: 100% ;
+			width: 100% ;
+			background: url('assets/rain.png') ;
+			position: fixed ;
+			background-size: cover ;
+			top: 0 ;
+			left: 0 ;
+			animation: rain 0.3s linear infinite ;
+		}
+
+		@keyframes rain {
+			0% {
+				background-position: -100% 0% ;
+			}
+
+			100% {
+				background-position: 0% -100% ;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div class="rain"></div>
+</body>

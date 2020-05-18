@@ -1,0 +1,70 @@
+
+<style>
+body {
+	display: flex ;
+	justify-content: center ;
+	align-items: center ;
+	flex-direction: column ;
+	height: 100vh ;
+}
+
+.btn {
+	text-decoration: none ;
+	background-color: #00A32C ;
+	color: transparent ;
+	font-size: 20px ;
+	border: 3px solid #00A32C ;
+	border-radius: 4px ;
+	margin-bottom: 8px ;
+	padding: 10px 20px ;
+	overflow: hidden ;
+	position: relative ;
+}
+
+.btn::before, .btn::after {
+	content: attr(data-content) ;
+	position: absolute ;
+	top: 0 ;
+	left: 0 ;
+	height: 100% ;
+	width: 100% ;
+	display: flex ;
+	justify-content: center ;
+	place-items: center ;
+	color: #fff ;
+	transition: all 0.5s ease ;
+}
+
+.btn::after {
+	transform: translate(-100%, 100%) ;
+}
+
+.btn:hover::before {
+	transform: translate(100%, -100%) ;
+}
+
+.btn:hover::after {
+	transform: translate(0%, 0%) ;
+}
+
+.btn {
+	display: inline-block ;
+}
+
+</style>
+
+<body>
+	<h2>Anchors</h2>
+	<a class="btn" data-content="Hover Me">Hover Me</a>
+	<a class="btn" data-content="Hover Me">Hover Me</a>
+
+	<div><a class="btn" data-content="Hover Me">Hover Me</a></div>
+	<div><a class="btn" data-content="Hover Me">Hover Me</a></div>
+
+	<h2>Buttons</h2>
+	<button class="btn" data-content="Hover Me">Hover Me</button>
+	<button class="btn" data-content="Hover Me">Hover Me</button>
+
+	<div><button class="btn" data-content="Hover Me">Hover Me</button></div>
+	<div><button class="btn" data-content="Hover Me">Hover Me</button></div>
+</body>

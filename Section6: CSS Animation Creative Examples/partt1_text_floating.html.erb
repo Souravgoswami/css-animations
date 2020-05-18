@@ -1,0 +1,42 @@
+<head>
+	<title>Floating Text</title>
+	<meta charset="utf-8">
+	<style>
+		body {
+			height: 100vh ;
+			display: flex ;
+			justify-content: center ;
+			justify-items: center ;
+			background-color: #f55 ;
+		}
+
+		h1 {
+			text-align: center ;
+			color: #fff ;
+			font-family: alice ;
+			font-size: 90px ;
+			line-height: 90px ;
+			letter-spacing: 15px ;
+			text-shadow: 0px 1px 0 #efefef,
+						0 2px 0 #efefef,
+						0 3px 0 #efefef,
+						0 4px 0 #efefef,
+						0 30px 5px #00000019 ;
+			animation: float 2s linear infinite alternate ;
+		}
+
+		@keyframes float {
+			from {
+				transform: rotate(5deg) ;
+			}
+
+			to {
+				transform: rotate(-5deg) ;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Coming <br>Soon</h1>
+</body>

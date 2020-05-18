@@ -1,0 +1,54 @@
+<head>
+	<meta charset="utf-8">
+	<title>Changing Background Colour</title>
+
+	<style>
+		body {
+			height: 100vh ;
+			display: flex ;
+			justify-content: center ;
+			align-items: center ;
+			background-color: #f55 ;
+			animation: bg-change 2s ease infinite ;
+			color: #fff ;
+		}
+
+		.h1 {
+			color: #fff ;
+			font-size: 70px ;
+			text-align: center ;
+			text-transform: capitalize ;
+			color: #fff ;
+		}
+
+		@keyframes bg-change {
+			0% {
+				background-color: #ff5555 ;
+			}
+
+			20% {
+				background-color: #ff50a6 ;
+			}
+
+			40% {
+				background-color: #3ce4b4 ;
+			}
+
+			60% {
+				background-color: #5555ff ;
+			}
+
+			80% {
+				background-color: #ffff00 ;
+			}
+
+			100% {
+				background-color: #ffaa00 ;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Changed <br>background colour</h1>
+</body>

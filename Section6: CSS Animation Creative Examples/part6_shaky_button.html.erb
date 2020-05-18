@@ -1,0 +1,44 @@
+<head>
+	<title>Shaky Button</title>
+	<meta charset="utf-8">
+	<style>
+		body {
+			height: 100vh ;
+			display: flex ;
+			justify-content: center ;
+			align-items: center ;
+			background-color: #222 ;
+		}
+
+		button {
+			color: #fff ;
+			font-family: alice ;
+			font-size: 40px ;
+			background-color: transparent ;
+			border: 3px solid #fff ;
+			padding: 40px 80px ;
+			border-radius: 8px ;
+			transition: all 0.25s ease ;
+		}
+
+		button:hover {
+			border: 3px solid #55f ;
+			color: #55f ;
+			animation: shake 0.25s linear 3 ;
+		}
+
+		@keyframes shake {
+			33%, 100% {
+				transform: rotate(10deg) ;
+			}
+
+			66% {
+				transform: rotate(-10deg) ;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<button>Hover Me</button>
+</body>

@@ -1,0 +1,121 @@
+<head>
+	<meta charset="utf-8">
+
+	<title>Button Hover Effect: 9-2</title>
+
+	<style>
+		body {
+			height: 100vh ;
+			display: flex ;
+			justify-content: center ;
+			align-items: center ;
+		}
+
+		ul {
+			margin: 0 ;
+			padding: 0 ;
+			display: flex ;
+			list-style-type: none ;
+		}
+
+		ul li a {
+			display: block ;
+			width: 120px ;
+			height: 40px ;
+			line-height: 40px ;
+			text-align: center ;
+			color: #C81882 ;
+			text-transform: capitalize ;
+			text-decoration: none ;
+			position: relative ;
+			transition: all 1s ease ;
+		}
+
+		ul li span {
+			position: absolute ;
+			width: 25% ;
+			height: 100% ;
+			background-color: #000 ;
+			z-index: -1 ;
+			left: 0 ;
+			top: 0 ;
+			transform-origin: top ;
+			transform: scaleY(0) ;
+			transition: all 0.5s ease-in-out ;
+		}
+
+		a:hover span {
+			transform: scaleY(1) ;
+		}
+
+		span:first-child {
+			background-color: #E54759 ;
+		}
+
+		span:nth-child(2) {
+			left: 25% ;
+			background-color: #4B8BF5 ;
+			transition-delay: 0.175s ;
+		}
+
+		span:nth-child(3) {
+			left: 50% ;
+			background-color: #fa0 ;
+			transition-delay: 0.25s ;
+		}
+
+		span:nth-child(4) {
+			left: 75% ;
+			background-color: #00A32C ;
+			transition-delay: 0.375s ;
+		}
+
+		a:hover {
+			color: #fff ;
+		}
+
+	</style>
+</head>
+
+<body>
+	<ul>
+		<li><a href="#">
+			Home
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</a></li>
+
+		<li><a href="#">
+			About
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</a></li>
+		<li><a href="#">
+			Services
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</a></li>
+
+		<li><a href="#">
+			Team
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</a></li>
+
+		<li><a href="#">
+			Contact
+			<span></span>
+			<span></span>
+			<span></span>
+			<span></span>
+		</a></li>
+	</ul>
+</body>

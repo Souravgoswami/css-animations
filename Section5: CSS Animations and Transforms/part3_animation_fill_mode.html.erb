@@ -1,0 +1,41 @@
+<head>
+	<title>Animation Part 1</title>
+	<meta charset="utf-8">
+	<style>
+		body {
+			margin: 0 ;
+		}
+
+		div {
+			background-color: #f5a ;
+			height: 150px ;
+			width: 150px ;
+			animation-name: moving ;
+			animation-duration: 5s ;
+			animation-delay: 1000ms ;
+
+			animation-fill-mode: backwards ;
+			animation-fill-mode: forwards ;
+			/* animation-fill-mode: both ; */
+
+		}
+
+		@keyframes moving {
+			0% {
+				transform: translateX(200px) ;
+			}
+
+			20% {
+				transform: translateX(500px) ;
+			}
+
+			100% {
+				transform: translate(500px, 500px) ;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div></div>
+</body>

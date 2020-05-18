@@ -1,0 +1,45 @@
+<head>
+	<meta charset="utf-8">
+	<title><%= File.split(Dir.pwd).last %>: Scale</title>
+	<style>
+		img {
+			padding: 10px ;
+			background-color: #f55 ;
+			transform: translate(0%) ;
+			margin: 2rem ;
+			border-radius: 0.5rem ;
+			transition-timing-function: ease ;
+			transition: all 1s ;
+			border: 1px solid #f55 ;
+		}
+
+		.room {
+			width: 100% ;
+		}
+
+		.room:hover img {
+			transform: scaleX(0.5) scaleY(0.5) ;
+			color: #f55 ;
+		}
+
+		.container {
+			width: 100% ;
+			display: block ;
+		}
+
+		img:hover {
+			filter: blur(2px) ;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<% 5.times do |i| %>
+			<div class="room">
+				<img src="assets/img.jpg" id="b<%= i + 1 %>">
+			</div>
+			<br>
+		<% end %>
+	<div>
+</body>

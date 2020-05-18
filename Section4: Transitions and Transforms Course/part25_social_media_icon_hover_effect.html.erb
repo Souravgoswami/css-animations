@@ -1,0 +1,106 @@
+<head>
+	<meta charset="utf-8">
+	<title>Social Media Icon Hover Effect</title>
+
+	<script src="assets/fontawesome.min.js"></script>
+	<link rel="stylesheet" href="assets/fontawesome.min.css">
+
+	<style>
+		body {
+			height: 100vh ;
+			display: flex ;
+			justify-content: center ;
+			align-items: center ;
+		}
+
+		.container {
+			display: flex ;
+			text-align: center ;
+		}
+
+		.icon {
+			width: 90px ;
+			height: 90px ;
+			background-color: #f1f1f1 ;
+			margin: 10px ;
+			border-radius: 30% ;
+			box-shadow: 0 4px 12px -4px #00000088 ;
+			transition: all 0.25s ease ;
+			line-height: 90px ;
+			font-size: 30px ;
+			position: relative ;
+			overflow: hidden ;
+			transition: all 0.5s ease ;
+		}
+
+		.fontawesome {
+			color: #10ac84 ;
+			transition: all 0.25s ease ;
+		}
+
+		.icon:hover .fontawesome {
+			transform: scale(1.3) ;
+		}
+
+		.icon::before {
+			content: '' ;
+			position: absolute ;
+			top: 0 ;
+			left: 0 ;
+			color: #222 ;
+			width: 120% ;
+			height: 120% ;
+			background-color: #10ac84 ;
+			left: -110% ;
+			top: 90% ;
+			transform: rotate(45deg) ;
+		}
+
+		.icon:hover::before {
+			animation: animation 0.75s 1 forwards ;
+		}
+
+		.icon:hover .fontawesome {
+			color: #fff ;
+		}
+
+		@keyframes animation {
+			0% {
+				left: -110% ;
+				top: 90% ;
+			}
+
+			50% {
+				left: 15% ;
+				top: -30% ;
+			}
+
+			100% {
+				left: -10% ;
+				top: -10% ;
+			}
+
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<a href="#" class="icon">
+			<i class="fab fa-facebook-f fontawesome"></i>
+		</a>
+
+		<a href="#" class="icon">
+			<i class="fab fa-twitter fontawesome"></i>
+		</a>
+
+		<a href="#" class="icon">
+			<i class="fab fa-google fontawesome"></i>
+		</a>
+
+		<a href="#" class="icon">
+			<i class="fab fa-instagram fontawesome"></i>
+		</a>
+	</div>
+
+</body>

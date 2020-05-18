@@ -1,0 +1,49 @@
+<head>
+	<meta charset="utf-8">
+	<title><%= File.split(Dir.pwd).last %>: Rotate</title>
+	<style>
+		img {
+			padding: 10px ;
+			background-color: #f55 ;
+			transform: translate(0%) ;
+			margin: 2rem ;
+			border-radius: 0.5rem ;
+			transition-timing-function: ease ;
+			transition: all 1s ;
+			border: 1px solid #f55 ;
+		}
+
+		.room {
+			width: 100% ;
+		}
+
+		.room:hover img {
+			/* works on  firefox only */
+			/* rotate: 180deg ; */
+
+			/* transform: rotate(180deg) ; */
+			/* transform: rotate(180deg) ; */
+			/* -webkit-transform: rotate(180deg) ; */
+
+			/* transform: rotate(-0.5turn) ; */
+			transform: rotate(250grad) ;
+			/* rotate: 1turn ; */
+		}
+
+		.container {
+			width: 100% ;
+			display: block ;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<% 5.times do |i| %>
+			<div class="room">
+				<img src="assets/img.jpg" id="b<%= i + 1 %>">
+			</div>
+			<br>
+		<% end %>
+	<div>
+</body>
