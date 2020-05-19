@@ -52,10 +52,9 @@ def main
 	updated_at = Time.now.to_i
 	output_file = OUTPUT_FILE
 
-	while files = Dir["#{__dir__}/**/*.html.erb".freeze]
+	while files = Dir["#{__dir__}/**/*.html.erb".freeze].tap(&:sort!)
 		files.each do |file|
-			mtime = File.mtime(file)
-			w = STDOUT.winsize[1]
+			mtime, w = File.mtime(file), STDOUT.winsize[1]
 
 			if (mtime_i = mtime.to_i) > updated_at
 				updated_at = mtime_i
