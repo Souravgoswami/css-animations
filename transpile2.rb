@@ -3,6 +3,12 @@
 %w(erb io/console webrick).each(&method(:require))
 OUTPUT_FILE = File.join(__dir__, 'index.html')
 
+COLOUR_SUCCESS = "\e[1;38;2;0;165;45m"
+COLOUR_INFO = "\e[1;38;2;255;255;0m"
+COLOUR_ERROR = "\e[1;38;2;215;80;90m"
+COLOUR_WARNING = "\e[1;38;2;255;180;0m"
+COLOUR_PRIMARY = "\e[1;38;2;0;125;255m"
+
 def init
 	unless File.exist?(OUTPUT_FILE)
 		f = File.basename(Process.argv0)
@@ -40,26 +46,41 @@ def init
 		)
 	end
 
-	puts "\e[1;38;2;75;140;245mWatching for modified or new .html.erb files in #{__dir__}\e[0m"
-	puts "\e[1;38;2;255;80;80mFound #{Dir["#{__dir__}/**/*.html.erb".freeze].count} html.erb files so far...\e[0m\n\n"
+	puts "#{COLOUR_PRIMARY}:: Watching for modified or new .html.erb files in #{__dir__}\e[0m"
+	puts "#{COLOUR_SUCCESS}:: Found #{Dir["#{__dir__}/**/*.html.erb".freeze].count} html.erb files so far...\e[0m\n\n"
 end
 
 def start_server
-	WEBrick::HTTPServer.new(Port: 8080, DocumentRoot: __dir__).start
+	port = 8080
+
+	begin
+		WEBrick::HTTPServer.new(
+			Port: port, DocumentRoot: __dir__,
+			BindAddress: '0.0.0.0',
+			Logger: WEBrick::Log.new(File::NULL)
+		).start
+	rescue Errno::EADDRINUSE
+		puts "#{COLOUR_INFO}:: Error: Port #{port} is unavailable! Retrying to http://0.0.0.0:#{port += 1}\e[0m"
+		sleep 0.05
+		retry
+	end
 end
 
 def main
 	updated_at = Time.now.to_i
 	output_file = OUTPUT_FILE
+	anim = %W(\xE2\xA0\x82 \xE2\xA0\x90 \xE2\xA0\xA0 \xE2\xA0\xA4 \xE2\xA0\x86)
+	ellipses = %w(. .. ...)
 
 	while files = Dir["#{__dir__}/**/*.html.erb".freeze].tap(&:sort!)
 		files.each do |file|
 			mtime, w = File.mtime(file), STDOUT.winsize[1]
 
 			if (mtime_i = mtime.to_i) > updated_at
+				sleep 0.125
 				updated_at = mtime_i
 				contents = IO.read(output_file) if File.readable?(output_file)
-				puts "\n\e[1;38;2;0;180;0mCompiling a newly modified file #{file}...\e[0m"
+				puts "\n\e[1;38;2;0;180;0m:: Compiling a newly modified file #{file}...\e[0m"
 
 				begin
 					compiled_html = <<~EOF
@@ -72,22 +93,26 @@ def main
 					EOF
 
 					if contents != compiled_html
-						IO.write(output_file.tap { |f| puts "#{?\s.*((w / 2 - f.length / 2 - 4).clamp(0, Float::INFINITY))}\e[1;4;38;2;145;45;255mUpdating #{f}\e[0m\n" + "\e[0m" }, compiled_html)
-
+						IO.write(output_file.tap { |f| puts "\n#{?\s.*((w / 2 - f.length / 2 - 4).clamp(0, Float::INFINITY))}#{COLOUR_PRIMARY}\e[4mUpdating #{f}\e[0m\n" + "\e[0m" }, compiled_html)
 						puts "\e[38;2;255;170;40m#{compiled_html}\e[0m"
-						puts "\e[1;38;2;145;45;255m#{?-.*(w)}\e[0m" + "\n\e[1;38;2;255;120;235mUpdated #{file} at #{mtime}".center(w) + "\e[0m"
+						puts "#{COLOUR_SUCCESS}:: Successfully updated #{file} at #{mtime}".center(w) + "\e[0m"
 					else
-						puts "\n\e[1;38;2;255;180;0mSkipped same content file...\e[0m"
+						puts "\n#{COLOUR_WARNING}:: Skipped, File has same content...\e[0m"
 					end
 				rescue Exception
-					puts "\e[1;38;2;255;80;80m#{' Error '.center(w, ?-)}\e[0m"
+					puts "#{COLOUR_ERROR}#{' :: Error '.center(w, ?-)}\e[0m"
 					puts "#{$!.to_s.each_line.map { |el| el.prepend('| ').concat(' |'.rjust(w - el.length)) }.join}"
 					puts "\e[1;38;2;255;80;80m#{?- * w}\e[0m"
+				ensure
+					puts "\e[1m#{?-.*(3).center(w)}\e[0m"
 				end
 			end
 		end
-		sleep 0.25
+
+		print " \e[2K#{COLOUR_PRIMARY}#{anim.rotate![0]} Watching for file changes#{ellipses.rotate![0]}\e[0m\r"
+		sleep(0.25)
 	end
+
 end
 
 begin
@@ -95,7 +120,7 @@ begin
 	Thread.new { start_server }
 	main
 rescue Interrupt, SystemExit, SignalException
-	puts "\nGood Bye!"
+	puts "\n:: Good Bye!"
 rescue Exception
 	abort $!.full_message
 end
