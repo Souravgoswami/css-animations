@@ -8,9 +8,7 @@ EXT = %w(html.erb html)
 # Output file name
 OUTPUT_FILE = File.join(__dir__, 'index.html')
 
-# --------------------------------------------- #
-
-# Code
+# Code:
 %w(io/console webrick).each(&method(:require))
 COLOUR_SUCCESS = "\e[1;38;2;0;165;45m"
 COLOUR_INFO = "\e[1;38;2;255;255;0m"
@@ -31,7 +29,7 @@ end
 
 def get_files(dir = __dir__)
 	Dir["#{dir}/**/*.{#{EXT.join(?,)}}"].tap do |x|
-		x.reject! { |x| File.dirname(x) == dir && File.split(x)[-1] == OUTPUT_FILE }
+		x.reject! { |x| File.dirname(x) == dir && File.split(x)[-1] == File.split(OUTPUT_FILE)[-1] }
 	end
 end
 
