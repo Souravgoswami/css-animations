@@ -1,20 +1,16 @@
 #!/usr/bin/ruby -w
 # Frozen_String_Literal: true
 
-##############################################
-#                               User Modifiable                           #
-##############################################
-
+# User Modifiable:
 # Extensions to watch for
 EXT = %w(html.erb html)
 
 # Output file name
 OUTPUT_FILE = File.join(__dir__, 'index.html')
 
-##############################################
-#                                       Code                                   #
-##############################################
+# --------------------------------------------- #
 
+# Code
 %w(io/console webrick).each(&method(:require))
 COLOUR_SUCCESS = "\e[1;38;2;0;165;45m"
 COLOUR_INFO = "\e[1;38;2;255;255;0m"
