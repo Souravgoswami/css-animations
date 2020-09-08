@@ -1,0 +1,48 @@
+<head>
+	<meta charset="utf-8">
+	<title>Preload Text Animation</title>
+
+	<style>
+		body {
+			margin: 0 ;
+			display: flex ;
+			align-items: center ;
+			justify-content: center ;
+			height: 100vh ;
+			background-color: #112 ;
+		}
+
+		.loading {
+			width: 300px ;
+			height: 3px ;
+			background-color: #fff ;
+			animation: line 1s ease infinite alternate ;
+		}
+
+		@keyframes line {
+			0% {
+				transform: scaleX(0) ;
+				transform-origin: left ;
+			}
+
+			45% {
+				transform: scaleX(1) ;
+				transform-origin: left ;
+			}
+
+			50% {
+				transform: scaleX(1) ;
+				transform-origin: right ;
+			}
+
+			100% {
+				transform: scaleX(0) ;
+				transform-origin: right ;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div class="loading"></div>
+</body>
