@@ -1,0 +1,94 @@
+<head>
+	<meta charset="utf-8">
+	<title>Preload Text Animation</title>
+
+	<style>
+		body {
+			margin: 0 ;
+			display: flex ;
+			align-items: center ;
+			justify-content: center ;
+			height: 100vh ;
+			background-color: #282E33 ;
+		}
+
+		.line {
+			width: 300px ;
+			border-bottom: 4px solid #fff ;
+			position: relative ;
+			animation: animate-line 3s linear infinite ;
+		}
+
+		.hexagon {
+			position: absolute ;
+			left: 0 ;
+			bottom: 0 ;
+			width: 50px ;
+			height: 30px ;
+			background-color: #fff ;
+			transform: translateY(-50%) ;
+			animation: animate-hexagon 3s linear infinite ;
+		}
+
+		.hexagon::before, .hexagon::after {
+			content: '' ;
+			position: absolute ;
+			top: 0 ;
+			left: 0 ;
+			width: 100% ;
+			height: 100% ;
+			background-color: #fff ;
+		}
+
+		.hexagon::before {
+			transform: rotate(60deg) ;
+		}
+
+		.hexagon::after {
+			transform: rotate(-60deg) ;
+		}
+
+		@keyframes animate-hexagon {
+			0% {
+				left: 0 ;
+			}
+
+			50% {
+				left: calc(100%) ;
+				transform: translate(-100%, -50%) rotate(720deg) ;
+			}
+
+			100% {
+				left: 0 ;
+			}
+		}
+
+		@keyframes animate-line {
+			0% {
+				transform: rotate(30deg) ;
+			}
+
+			25% {
+				transform: rotate(0deg) ;
+			}
+
+			50% {
+				transform: rotate(-30deg) ;
+			}
+
+			75% {
+				transform: rotate(0deg) ;
+			}
+
+			100% {
+				transform: rotate(30deg) ;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<div class="line">
+		<div class="hexagon"></div>
+	</div>
+</body>
