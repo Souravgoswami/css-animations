@@ -25,6 +25,31 @@ COLOUR_PRIMARY = "\e[1;38;2;0;125;255m"
 arg_ext = ARGV.select { |x| x[/^\-(\-watch)|(w)=.*$/] }[-1].to_s.split(?=)[1].to_s.split(?,)
 EXT.replace(arg_ext) unless arg_ext.empty?
 
+def minify!(lines)
+	output = []
+	state1 = state2 = false
+
+	lines.each do |x|
+		x.strip!
+		reject_conditions = x[/^<\s*!\s*--.*--\s*>$/]
+
+		unless reject_conditions
+			if state1
+				output.push(output.pop << x)
+			elsif state2
+				output.push(output.pop << ?\s << x)
+			else
+				output.push(x)
+			end
+
+			state1 = x[/^.*<\s*\/?.*>$/]
+			state2 = x[/^<.*$/] && !x[/>/]
+		end
+	end
+
+	output
+end
+
 def print_help
 	puts <<~EOF
 		This program generates html or html.erb (embedded ruby) codes primarily.
@@ -207,9 +232,13 @@ def main
 
 				compiled_html = compile(compiled_contents, file)
 
-				if contents != compiled_html
-					IO.write(output_file.tap { |f| puts "\n#{?\s.*((w / 2 - f.length / 2 - 4).clamp(0, Float::INFINITY))}#{COLOUR_PRIMARY}\e[4mUpdating #{f}\e[0m\n" + "\e[0m" }, compiled_html)
-					puts "\e[38;2;255;170;40m#{compiled_html}\e[0m"
+				minified_html = minify!(compiled_html.lines)
+				4.times { minified_html.replace(minify!(minified_html))}
+				output = minified_html.join(?\n)
+
+				if contents != output
+					IO.write(output_file.tap { |f| puts "\n#{?\s.*((w / 2 - f.length / 2 - 4).clamp(0, Float::INFINITY))}#{COLOUR_PRIMARY}\e[4mUpdating #{f}\e[0m\n" + "\e[0m" }, output)
+					puts "\e[38;2;255;170;40m#{output}\e[0m"
 					puts "#{COLOUR_SUCCESS}:: Successfully updated #{file} at #{mtime}".center(w) + "\e[0m"
 				else
 					puts "\n#{COLOUR_WARNING}:: Skipped, File has same content...\e[0m"
