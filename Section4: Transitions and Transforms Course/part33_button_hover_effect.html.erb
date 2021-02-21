@@ -1,0 +1,69 @@
+<head>
+	<meta charset="utf-8">
+	<title>Menu Hover Effect</title>
+
+	<style>
+		body {
+			height: 100vh ;
+			display: flex ;
+			align-items: center ;
+			justify-content: center ;
+			overflow: hidden ;
+			flex-direction: column ;
+		}
+
+		a {
+			text-decoration: none ;
+			width: 160px ;
+			height: 60px ;
+			color: #000 ;
+			line-height: 60px ;
+			text-align: center ;
+			text-transform: capitalize ;
+			font-size: 24px ;
+			position: relative ;
+			transition: all 0.25s ease ;
+			overflow: hidden ;
+		}
+
+		a span {
+			position: absolute ;
+			width: calc(100% - 4px) ;
+			height: calc(100% - 4px) ;
+			top: 0 ;
+			left: 0 ;
+			border: 2px solid #000 ;
+			z-index: -1 ;
+		}
+
+		span::before {
+			content: '' ;
+			position: absolute ;
+			width: 8% ;
+			height: 500% ;
+			background-color: #fff ;
+			display: block ;
+			top: 50% ;
+			left: 50% ;
+			transform: translate(-50%, -50%) rotate(-60deg) ;
+			transition: all 0.25s ease ;
+		}
+
+		a:hover {
+			color: #fff ;
+		}
+
+		a:hover span::before {
+			width: 100% ;
+			transform: translate(-50%, -50%) rotate(60deg) ;
+			background-color: #000 ;
+		}
+	</style>
+</head>
+
+<body>
+	<a href="#">
+		Button
+		<span></span>
+	</a>
+</body>

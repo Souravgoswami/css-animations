@@ -1,52 +1,46 @@
-<!Doctype HTML><html><head><meta charset="utf-8"><title>Lighting Text HTML 1</title><style>body {
+<!Doctype HTML><html><head><meta charset="utf-8"><title>Menu Hover Effect</title><style>body {
 height: 100vh ;
+margin: 0 ;
 display: flex ;
 justify-content: center ;
 align-items: center ;
-background-color: #222 ;
+background-color: #10ac84 ;
+font-weight: bold ;
+position: relative ;
 }
-ul {
-margin: 0 ;
-padding: 0 ;
-display: flex ;
+a {
+position: absolute;
+text-decoration: none ;
+text-transform: uppercase ;
+padding: 25px 50px ;
+background-color: white ;
+color: #777 ;
+border-radius: 100px ;
+font-size: 24px ;
+transition: all 0.25s ease ;
 }
-ul li {
-list-style: none ;
-color: #444 ;
-font-size: 80px ;
-letter-spacing: 15px ;
-font-family: alice ;
-animation: lighting 1.4s linear infinite ;
+a::before {
+content: '' ;
+position: absolute ;
+top: 0 ;
+left: 0 ;
+width: 100% ;
+height: 100% ;
+background-color: #fff ;
+border-radius: 100px ;
+transition: all 0.5s ease ;
+z-index: -1 ;
 }
-@keyframes lighting {
-0%, 90% {
-color: #444 ;
-text-shadow: none ;
+a:hover::before {
+transform: scaleX(1.4) scaleY(1.6) ;
+opacity: 0 ;
 }
-100% {
-color: #ff0 ;
-text-shadow: 0 0 8px #ff0, 0 0 50px #ff2 ;
+a:hover {
+transform: translateY(-3px) ;
+box-shadow: 0 10px 20px #0003 ;
 }
+a:active {
+transform: translateY(-1px) ;
+box-shadow: 0 5px 10px #0003 ;
 }
-ul li:nth-child(2) {
-animation-delay: 0.1s ;
-}
-ul li:nth-child(3) {
-animation-delay: 0.2s ;
-}
-ul li:nth-child(4) {
-animation-delay: 0.3s ;
-}
-ul li:nth-child(5) {
-animation-delay: 0.4s ;
-}
-ul li:nth-child(6) {
-animation-delay: 0.5s ;
-}
-ul li:nth-child(7) {
-animation-delay: 0.6s ;
-}
-ul li:nth-child(8) {
-animation-delay: 0.7s ;
-}
-</style></head><body><ul><li>L</li><li>I</li><li>G</li><li>H</li><li>T</li><li>I</li><li>N</li><li>G</li></ul></body></html>
+</style></head><body><a href="#">Hover Me</a></body></html>

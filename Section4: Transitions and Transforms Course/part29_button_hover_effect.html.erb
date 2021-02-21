@@ -1,0 +1,73 @@
+<head>
+	<meta charset="utf-8">
+	<title>Menu Hover Effect</title>
+
+	<style>
+		body {
+			height: 100vh ;
+			display: flex ;
+			align-items: center ;
+			justify-content: center ;
+			overflow: hidden ;
+		}
+
+		a {
+			text-decoration: none ;
+			width: 160px ;
+			height: 60px ;
+			color: black ;
+			border: 2px solid #000 ;
+			text-align: center ;
+			line-height: 60px ;
+			font-size: 25px ;
+			transition: all 0.25s ease ;
+			position: relative ;
+		}
+
+		a::before {
+			content: '' ;
+			position: absolute ;
+			top: 0 ;
+			left: 0 ;
+			width: 100% ;
+			height: 100% ;
+			background-color: #000 ;
+			z-index: -1 ;
+			opacity: 0 ;
+			transition: all 0.8s ease ;
+		}
+
+		a:hover::before {
+			opacity: 1 ;
+			transform: rotate(15deg) ;
+		}
+
+		a:hover {
+			color: #fff ;
+		}
+
+		a > span {
+			color: transparent ;
+			position: relative ;
+		}
+
+		a > span::before {
+			content: 'B' ;
+			position: absolute ;
+			color: #000 ;
+			transition: all 0.25s ease ;
+		}
+
+		a:hover span::before {
+			color: #fff ;
+			font-size: 80px ;
+			transform: translate(-65%, -10%) rotate(360deg) ;
+		}
+	</style>
+</head>
+
+<body>
+	<a href="#">
+		<span>B</span>utton
+	</a>
+</body>
