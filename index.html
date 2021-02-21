@@ -1,46 +1,56 @@
 <!Doctype HTML><html><head><meta charset="utf-8"><title>Menu Hover Effect</title><style>body {
 height: 100vh ;
-margin: 0 ;
 display: flex ;
-justify-content: center ;
 align-items: center ;
-background-color: #10ac84 ;
-font-weight: bold ;
+justify-content: center ;
+overflow: hidden ;
+flex-direction: column ;
+background-color: #222 ;
+}
+ul {
+margin: 0 ;
+padding: 0 ;
+/* display: flex ; */
+}
+ul li {
+list-style: none ;
+}
+ul li a {
 position: relative ;
-}
-a {
-position: absolute;
+display: block ;
+color: transparent ;
+-webkit-text-stroke: 1px white ;
+font-size: 80px ;
+font-weight: 900 ;
 text-decoration: none ;
-text-transform: uppercase ;
-padding: 25px 50px ;
-background-color: white ;
-color: #777 ;
-border-radius: 100px ;
-font-size: 24px ;
-transition: all 0.25s ease ;
 }
-a::before {
-content: '' ;
+a::before, a::after {
+content: attr(data-text) ;
 position: absolute ;
 top: 0 ;
 left: 0 ;
-width: 100% ;
-height: 100% ;
-background-color: #fff ;
-border-radius: 100px ;
-transition: all 0.5s ease ;
-z-index: -1 ;
+transition: 0.5s ;
 }
 a:hover::before {
-transform: scaleX(1.4) scaleY(1.6) ;
-opacity: 0 ;
+color: #f55 ;
+z-index: 1 ;
+-webkit-text-stroke: 1px black ;
+transform: translate(10px, -10px) ;
+}
+a:hover::after {
+color: #aaf ;
+z-index: 2 ;
+-webkit-text-stroke: 1px black ;
+transform: translate(20px, -20px) ;
 }
 a:hover {
-transform: translateY(-3px) ;
-box-shadow: 0 10px 20px #0003 ;
+color: #fff ;
+-webkit-text-stroke: 1px #000 ;
+transition: 0.5s ;
 }
-a:active {
-transform: translateY(-1px) ;
-box-shadow: 0 5px 10px #0003 ;
-}
-</style></head><body><a href="#">Hover Me</a></body></html>
+</style></head><body><ul><li><a href="#" data-text="home">home
+</a></li><li><a href="#" data-text="about">about
+</a></li><li><a href="#" data-text="services">services
+</a></li><li><a href="#" data-text="team">team
+</a></li><li><a href="#" data-text="contact">contact
+</a></li></ul></body></html>

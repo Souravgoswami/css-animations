@@ -1,0 +1,88 @@
+<head>
+	<meta charset="utf-8">
+	<title>Menu Hover Effect</title>
+
+	<style>
+		body {
+			height: 100vh ;
+			display: flex ;
+			align-items: center ;
+			justify-content: center ;
+			overflow: hidden ;
+			flex-direction: column ;
+			background-color: #222 ;
+		}
+
+		ul {
+			margin: 0 ;
+			padding: 0 ;
+			display: flex ;
+		}
+
+		ul li {
+			list-style: none ;
+		}
+
+		ul li a {
+			position: relative ;
+			display: block ;
+			padding: 15px 30px ;
+			margin: 0 15px ;
+			text-decoration: none ;
+			text-transform: uppercase ;
+			color: #ffeb3b ;
+		}
+
+		a::before {
+			content: '' ;
+			position: absolute ;
+			top: 0 ;
+			left: 0 ;
+			width: 100% ;
+			height: 100% ;
+			border-top: 2px solid #ffeb3b ;
+			border-left: 2px solid #ffeb3b ;
+			transition: 0.5s ;
+			box-sizing: border-box ;
+			transform-origin: left ;
+		}
+
+		a::after {
+			content: '' ;
+			position: absolute ;
+			bottom: 0 ;
+			right: 0 ;
+			width: 100% ;
+			height: 100% ;
+			border-bottom: 2px solid #ffeb3b ;
+			border-right: 2px solid #ffeb3b ;
+			transition: 0.5s ;
+			box-sizing: border-box ;
+			transform-origin: right ;
+		}
+
+		a:hover::before {
+			width: 15px ;
+			height: 15px ;
+			transform: rotate(360deg) ;
+		}
+
+		a:hover::after {
+			width: 15px ;
+			height: 15px ;
+			transform: rotate(360deg) ;
+		}
+	</style>
+</head>
+
+<body>
+	<ul>
+		<% %w(home about services team contact).each do |text| %>
+				<li>
+					<a href="#">
+						<%= text %>
+					</a>
+				</li>
+		<% end %>
+	</ul>
+</body>

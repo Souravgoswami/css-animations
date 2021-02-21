@@ -1,0 +1,78 @@
+<head>
+	<meta charset="utf-8">
+	<title>Menu Hover Effect</title>
+
+	<style>
+		body {
+			height: 100vh ;
+			display: flex ;
+			align-items: center ;
+			justify-content: center ;
+			overflow: hidden ;
+			flex-direction: column ;
+			background-color: #222 ;
+		}
+
+		ul {
+			margin: 0 ;
+			padding: 0 ;
+			display: flex ;
+		}
+
+		li {
+			list-style: none ;
+			margin: 0 20px ;
+			transition: all 0.5s ease ;
+		}
+
+		ul a {
+			display: block ;
+			position: relative ;
+			text-decoration: none ;
+			padding: 5px ;
+			font-size: 22px ;
+			color: #fff ;
+			text-transform: uppercase ;
+			transition: all 0.25s ease ;
+		}
+
+		a::before {
+			content: '' ;
+			position: absolute ;
+			top: 0 ;
+			left: 0 ;
+			width: 100% ;
+			height: 100% ;
+			background-color: #ee5a24 ;
+			transition: 0.3s ease ;
+			transform: scale(0) ;
+			z-index: -1 ;
+		}
+
+		a:hover::before {
+			transform: scale(1) ;
+		}
+
+		ul:hover a {
+			filter: blur(5px) ;
+			opacity: 0.2 ;
+		}
+
+		ul a:hover {
+			transform: scale(1.5) ;
+			filter: none ;
+			opacity: 1 ;
+		}
+
+	</style>
+</head>
+
+<body>
+	<ul>
+		<li><a href="#">Home</a></li>
+		<li><a href="#">About</a></li>
+		<li><a href="#">Services</a></li>
+		<li><a href="#">Portfolio</a></li>
+		<li><a href="#">Contact</a></li>
+	</ul>
+</body>
