@@ -1,0 +1,142 @@
+<head>
+	<meta charset="utf-8">
+	<title>Menu Hover Effect</title>
+
+	<style>
+		body {
+			height: 100vh ;
+			display: flex ;
+			align-items: center ;
+			justify-content: center ;
+			flex-direction: column ;
+			background-color: #222 ;
+		}
+
+		.container {
+			width: 450px ;
+			height: 300px ;
+			position: relative ;
+			overflow: hidden ;
+		}
+
+		.image-container {
+			max-width: 100% ;
+			max-height: 100% ;
+			object-fit: cover ;
+			overflow: hidden ;
+		}
+
+		.container::before {
+			content: '' ;
+			position: absolute ;
+			top: 0 ;
+			left: 0 ;
+			width: 100% ;
+			transition: all 0.25s ;
+			background-color: #0006 ;
+			height: 100% ;
+			transition: all 0.25s ease ;
+		}
+
+		.caption {
+			position: absolute ;
+			top: 0 ;
+			left: 0 ;
+			width: 100% ;
+			height: 100% ;
+			display: flex ;
+			flex-direction: column ;
+			justify-content: space-around ;
+			color: #fff ;
+			text-transform: uppercase ;
+		}
+
+		h2 {
+			text-align: center ;
+			font-size: 17px ;
+			padding: 20px ;
+			margin-top: 20px ;
+			background-color: #000a ;
+			transition: all 0.25s ease ;
+		}
+
+		p {
+			font-size: 16px ;
+			width: 80% ;
+			align-self: center ;
+			text-align: center ;
+			transition: all 0.25s ;
+			background-color:
+		}
+
+		a {
+			text-decoration: none ;
+			background-color: #000 ;
+			color: #fff ;
+			width: 100px ;
+			padding: 15px ;
+			margin-bottom: 20px ;
+			align-self: center ;
+			transition: all 0.25s ease ;
+		}
+
+		.container {
+			background-color: #444 ;
+			border: 10px solid #fff ;
+		}
+
+		img {
+			transition: all 0.5s ;
+		}
+
+		.container:hover img {
+			transform: rotate(720deg) scale(0) ;
+			opacity: 0 ;
+		}
+
+		.container::before {
+			background-color: #006266 ;
+			opacity: 0 ;
+			transition: all 0.25s ;
+		}
+
+		.container:hover::before {
+			opacity: 1 ;
+			transition-delay: 0.5s ;
+		}
+
+		a, p, h2 {
+			transform: translateY(-300px) ;
+			transition: all 0.25s ;
+		}
+
+		.container:hover a {
+			transform: translateY(0) ;
+			transition-delay: 0.5s ;
+		}
+
+		.container:hover p {
+			transform: translateY(0) ;
+			transition-delay: 0.75s ;
+		}
+
+		.container:hover h2 {
+			transform: translateY(0) ;
+			transition-delay: 0.9s ;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<div class="image-container">
+			<img src="assets/img.jpg">
+		</div>
+
+		<div class="caption">
+			<h2>Image Hover</h2>
+			<p>Lorem ipsum dolor sit amet</p>
+			<a href="#">Read More</a>
+		</div>
+	</div>
+</body>
