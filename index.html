@@ -1,4 +1,4 @@
-<!Doctype HTML><html><head><meta charset="utf-8"><title>Rings Rotation Loader</title><style>body {
+<!Doctype HTML><html><head><meta charset="utf-8"><title>Colourful Lines Loader</title><style>body {
 margin: 0 ;
 display: flex ;
 align-items: center ;
@@ -7,64 +7,26 @@ height: 100vh ;
 background-color: #282E33 ;
 }
 .loader {
-width: 200px ;
-height: 200px ;
-position: relative ;
+width: 70px ;
+display: flex ;
 }
-.outer {
-position: absolute ;
-top: 0 ;
-bottom: 0 ;
-left: 0 ;
-right: 0 ;
-border-left: 5px solid #eb4db4 ;
-border-right: 5px solid #eb4db4 ;
-border-top: 5px solid transparent ;
-border-bottom: 5px solid transparent ;
-border-radius: 50% ;
-animation: rotate 1s linear infinite ;
-}
-.middle {
-position: absolute ;
-top: 30px ;
-bottom: 30px ;
-left: 30px ;
-right: 30px ;
-border-left: 5px solid #218c74 ;
-border-right: 5px solid #218c74 ;
-border-top: 5px solid transparent ;
-border-bottom: 5px solid transparent ;
-border-radius: 50% ;
-animation: rotate 1s linear infinite reverse ;
-}
-.inner {
-position: absolute ;
-top: 60px;
-bottom: 60px;
-left: 60px;
-right: 60px;
-border-left: 5px solid #ccae62 ;
-border-right: 5px solid #ccae62 ;
-border-top: 5px solid transparent ;
-border-bottom: 5px solid transparent ;
-border-radius: 50% ;
-animation: rotate 1s linear infinite ;
-}
-.dot {
-position: absolute ;
-top: 90px ;
-bottom: 90px ;
-left: 90px ;
-right: 90px ;
+span {
+width: 10px ;
+height: 60px ;
+margin: 0px 1px ;
 background-color: #fff ;
-border-radius: 50% ;
+transform: scaleY(0.1) ;
+animation: loading 0.75s ease-in-out infinite ;
 }
-@keyframes rotate {
+@keyframes loading {
 0% {
-transform: rotate(0) ;
+transform: scaleY(0.1) ;
 }
-100% {
-transform: rotate(360deg) ;
+35% {
+transform: scaleY(1) ;
+}
+60%, 100% {
+transform: scaleY(0.1) ;
 }
 }
-</style></head><body><div class="loader"><div class="outer"></div><div class="middle"></div><div class="inner"></div><div class="dot"></div></div></body></html>
+</style></head><body><div class="loader"><span style="background-color: #2eeca8"></span><span style="background-color: #eade3d;animation-delay: 0.1s"></span><span style="background-color: #55acee;animation-delay: 0.2s"></span><span style="background-color: #ec902e;animation-delay: 0.3s"></span><span style="background-color: #09b7bf;animation-delay: 0.4s"></span><span style="background-color: #ff50a6;animation-delay: 0.5s"></span></div></body></html>
