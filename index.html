@@ -1,106 +1,75 @@
-<!Doctype HTML><html><head><meta charset="utf-8"><title>Menu Hover Effect</title><style>body {
+<!Doctype HTML><html><head><meta charset="utf-8"><meta name="viewport" content="width:device-width,initial-scale:1"><title>Neon Glow</title><style>:root {
+--neon: #f0f ;
+--neon-rgb: 255, 0, 255 ;
+--background: #222 ;
+}
+html, body {
+margin: 0 ;
+padding: 0 ;
+}
+body {
+width: 100% ;
 height: 100vh ;
 display: flex ;
 align-items: center ;
 justify-content: center ;
-flex-direction: column ;
-background-color: #222 ;
+background-color: var(--background) ;
 }
-.container {
-width: 450px ;
-height: 300px ;
+.btn-neon {
+user-select: none ;
+color: var(--neon) ;
+border: currentColor solid 1.5px ;
+border-radius: .3rem ;
+padding: 0.5rem 1rem ;
+text-decoration: none ;
 position: relative ;
-overflow: hidden ;
+text-shadow: 0 0 0.25em currentColor, 0 0 1em currentColor ;
+box-shadow: inset 0 0 0.5em var(--neon), 0 0 0.5em var(--neon) ;
+transition: 0.25s ease ;
 }
-.image-container {
-max-width: 100% ;
-max-height: 100% ;
-object-fit: cover ;
-overflow: hidden ;
-}
-.container::before {
+.btn-neon::before {
 content: '' ;
 position: absolute ;
 top: 0 ;
 left: 0 ;
 width: 100% ;
-transition: all 0.25s ;
-background-color: #0006 ;
 height: 100% ;
-transition: all 0.25s ease ;
+box-shadow: inset 0 0 1em rgba(var(--neon-rgb), 1),
+0 0 2em rgba(var(--neon-rgb), 0.75),
+0 0 3em rgba(var(--neon-rgb), 0.5) ;
+opacity: 0 ;
+filter: blur(8px) ;
+pointer-events: none ;
+transition: 0.125s ease 0.125s ;
 }
-.caption {
+.btn-neon::after {
+content: '' ;
 position: absolute ;
-top: 0 ;
+top: 110% ;
 left: 0 ;
-width: 100% ;
 height: 100% ;
-display: flex ;
-flex-direction: column ;
-justify-content: space-around ;
-color: #fff ;
-text-transform: uppercase ;
+width: 100% ;
+background-color: var(--neon) ;
+transform: perspective(1em) rotateX(40deg) scale(1, 0.35) ;
+filter: blur(24px) ;
+opacity: 0.5 ;
+transition: 0.25s ease ;
+pointer-events: none ;
 }
-h2 {
-text-align: center ;
-font-size: 17px ;
-padding: 20px ;
-margin-top: 20px ;
-background-color: #000a ;
-transition: all 0.25s ease ;
+.btn-neon:focus,
+.btn-neon:hover {
+background-color: var(--neon) ;
+color: var(--background) ;
+text-shadow: none ;
+border-color: var(--neon) ;
 }
-p {
-font-size: 16px ;
-width: 80% ;
-align-self: center ;
-text-align: center ;
-transition: all 0.25s ;
-background-color:
-}
-a {
-text-decoration: none ;
-background-color: #000 ;
-color: #fff ;
-width: 100px ;
-padding: 15px ;
-margin-bottom: 20px ;
-align-self: center ;
-transition: all 0.25s ease ;
-}
-.container {
-background-color: #444 ;
-border: 10px solid #fff ;
-}
-img {
-transition: all 0.5s ;
-}
-.container:hover img {
-transform: rotate(720deg) scale(0) ;
-opacity: 0 ;
-}
-.container::before {
-background-color: #006266 ;
-opacity: 0 ;
-transition: all 0.25s ;
-}
-.container:hover::before {
+.btn-neon:focus::before,
+.btn-neon:hover::before {
 opacity: 1 ;
-transition-delay: 0.5s ;
 }
-a, p, h2 {
-transform: translateY(-300px) ;
-transition: all 0.25s ;
+.btn-neon:focus::after,
+.btn-neon:hover::after {
+opacity: 1 ;
+transition: 0.25s ease 0.125s ;
 }
-.container:hover a {
-transform: translateY(0) ;
-transition-delay: 0.5s ;
-}
-.container:hover p {
-transform: translateY(0) ;
-transition-delay: 0.75s ;
-}
-.container:hover h2 {
-transform: translateY(0) ;
-transition-delay: 0.9s ;
-}
-</style></head><body><div class="container"><div class="image-container"><img src="assets/img.jpg"></div><div class="caption"><h2>Image Hover</h2><p>Lorem ipsum dolor sit amet</p><a href="#">Read More</a></div></div></body></html>
+</style></head><body><a href="#" class="btn-neon">Neonize!</a></body></html>
