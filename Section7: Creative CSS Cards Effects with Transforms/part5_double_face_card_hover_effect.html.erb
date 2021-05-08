@@ -1,0 +1,127 @@
+<head>
+	<meta charset="utf8">
+	<title>Double Face Card Hover Effect</title>
+
+	<style>
+		body {
+			margin: 0 ;
+			height: 100vh ;
+			display: flex ;
+			justify-content: center ;
+			align-items: center ;
+			background-color: #222 ;
+		}
+
+		.card {
+			cursor: pointer ;
+			position: relative ;
+			max-width: 300px ;
+		}
+
+		.face1, .face2 {
+			border-radius: 6px ;
+			width: 100% ;
+			height: 200px ;
+			display: flex ;
+			flex-direction: column ;
+			align-items: center ;
+			text-align: center ;
+			justify-content: center ;
+			transition: 0.5s ease ;
+			box-sizing: border-box ;
+ 			position: relative ;
+		}
+
+		.face1 {
+			color: #fff ;
+			background-color: #0008 ;
+			transform: translateY(50%) ;
+			z-index: 1 ;
+			backdrop-filter: blur(4px) ;
+		}
+
+		.face2 {
+			background-color: #fff ;
+			display: flex ;
+			padding: 24px ;
+			box-shadow: 0 20px 50px #0006 ;
+			transform: translateY(-50%) ;
+		}
+
+		.card:hover .face1 {
+			border-radius: 6px 6px 0 0 ;
+			background-color: #ff0057 ;
+			transform: translateY(0) ;
+			box-shadow: 0 0 50px 4px #ff0057 ;
+		}
+
+		.card:hover .face2 {
+			border-radius: 0 0 6px 6px ;
+			transform: translateY(0) ;
+			box-shadow: 0 0 50px 4px #fff6 ;
+		}
+
+		.imgbox {
+			opacity: 0.25 ;
+			transition: 0.5s ;
+		}
+
+		.card:hover .imgbox {
+			opacity: 1 ;
+		}
+
+		.face1 img {
+			width: 100px ;
+		}
+
+		h3 {
+			margin: 10px 0 0 ;
+			padding: 0 ;
+			text-align: center ;
+			font-size: 24px ;
+		}
+
+		p {
+			margin: 0 ;
+			padding: 0 ;
+		}
+
+		a {
+			margin: 15px 0 0 ;
+			display: inline-block ;
+			text-decoration: none ;
+			font-weight: 900 ;
+			color: #777 ;
+			padding: 6px ;
+			border: 1px solid #ff0057 ;
+			transition: all 0.25s ease ;
+		}
+
+		a:hover {
+			box-shadow: 4px 4px 4px #0006 ;
+			background-color: #ff0057 ;
+			color: #fff ;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="card">
+		<div class="face1">
+			<div class="imgbox">
+				<img src="assets/language.png">
+				<h3>Design</h3>
+			</div>
+		</div>
+
+		<div class="face2">
+			<div class="content">
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+				</p>
+
+				<a href="#">Read More</a>
+			</div>
+		</div>
+	</div>
+</body>
