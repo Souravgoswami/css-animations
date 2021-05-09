@@ -1,95 +1,28 @@
-<!Doctype HTML><html><head><meta charset="utf8"><title>Layered Face Card Hover Effect</title><style>body {
+<!Doctype HTML><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale:1"><title>Clip Path Intro</title><style>body {
 margin: 0 ;
+padding: 0 ;
+background-color: #2f2f2f ;
 height: 100vh ;
 display: flex ;
 justify-content: center ;
 align-items: center ;
-background-color: #192a56 ;
 }
-.card {
-position: relative ;
+img {
 width: 300px ;
-height: 400px ;
-background-color: #000 ;
-box-shadow: 0 30px 30px #0008 ;
-display: flex ;
-align-items: center ;
-flex-direction: column ;
+height: 300px ;
+/* Triangle */
+clip-path: polygon(50% 0, 0 100%, 100% 100%) ;
+/* Flipped triangle */
+clip-path: polygon(0 0, 100% 0, 50% 100%) ;
+/* Rotated triangle 1 */
+clip-path: polygon(0 0, 100% 50%, 0 100%) ;
+/* Rotated triangle 2 */
+clip-path: polygon(100% 0, 0 50%, 100% 100%) ;
+/* Circle */
+clip-path: circle(50% at 50% 50%) ;
+/* Star Shape */
+clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%) ;
+/* Trapezoid */
+clip-path: polygon(47% 14%, 83% 22%, 100% 100%, 27% 36%);
 }
-.content {
-position: absolute ;
-bottom: 0 ;
-opacity: 1 ;
-color: #fff ;
-width: 100% ;
-height: 80px ;
-overflow: hidden ;
-background-color: #0006 ;
-transition: 0.5s ;
-backdrop-filter: blur(16px) ;
-}
-.card .imgbox {
-position: absolute ;
-top: 0 ;
-left: 0 ;
-width: 100% ;
-height: 100% ;
-background: linear-gradient(45deg, #f55, #55f) ;
-transition: 0.5s ;
-}
-.card .imgbox img {
-width: 100% ;
-height: 100% ;
-object-fit: cover ;
-transition: 0.5s ;
-}
-.content h3 {
-font-size: 24px ;
-overflow: hidden ;
-white-space: nowrap ;
-text-overflow: ellipsis ;
-text-align: center ;
-text-transform: uppercase ;
-margin: 24px ;
-}
-.content p {
-width: 80% ;
-margin: 10px auto ;
-font-size: 16px ;
-transition: 0.5s ;
-opacity: 0 ;
-}
-.center {
-width: 100% ;
-display: flex ;
-justify-content: center ;
-}
-.content a {
-text-decoration: none ;
-background-color: #fff ;
-color: #222 ;
-padding: 12px 16px ;
-display: inline-block ;
-margin-top: 12px ;
-transition: 0.5s ;
-opacity: 0 ;
-}
-.card:hover .content {
-height: 100% ;
-width: 100% ;
-}
-.card:hover .content p {
-opacity: 1 ;
-transition-delay: 0.5s ;
-}
-.card:hover .content a {
-opacity: 1 ;
-transition-delay: 0.75s ;
-}
-.content a:hover {
-box-shadow: 0 0 12px #fff ;
-transition-delay: 0s !important ;
-}
-</style></head><body><div class="card"><div class="imgbox"><img src="assets/img.jpg"></div><div class="content"><h3>Post Title
-</h3><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-</p><div class="center"><a href="#">Read More</a></div></div></div></body></html>
+</style></head><body><img src="assets/img.jpg"></body></html>
