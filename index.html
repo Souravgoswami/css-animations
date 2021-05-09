@@ -1,28 +1,37 @@
-<!Doctype HTML><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale:1"><title>Clip Path Intro</title><style>body {
+<!Doctype HTML><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale:1"><title>Wavy Effect</title><style>body {
 margin: 0 ;
 padding: 0 ;
-background-color: #2f2f2f ;
 height: 100vh ;
 display: flex ;
 justify-content: center ;
 align-items: center ;
+background-color: #111 ;
 }
-img {
-width: 300px ;
-height: 300px ;
-/* Triangle */
-clip-path: polygon(50% 0, 0 100%, 100% 100%) ;
-/* Flipped triangle */
-clip-path: polygon(0 0, 100% 0, 50% 100%) ;
-/* Rotated triangle 1 */
-clip-path: polygon(0 0, 100% 50%, 0 100%) ;
-/* Rotated triangle 2 */
-clip-path: polygon(100% 0, 0 50%, 100% 100%) ;
-/* Circle */
-clip-path: circle(50% at 50% 50%) ;
-/* Star Shape */
-clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%) ;
-/* Trapezoid */
-clip-path: polygon(47% 14%, 83% 22%, 100% 100%, 27% 36%);
+.wave {
+position: relative ;
+width: 500px ;
+height: 500px ;
 }
-</style></head><body><img src="assets/img.jpg"></body></html>
+.wave h2 {
+position: absolute ;
+font-size: 170px ;
+text-transform: uppercase ;
+}
+.wave h2:nth-child(1) {
+color: transparent ;
+-webkit-text-stroke: 2px #03a9f4 ;
+}
+.wave h2:nth-child(2) {
+color: #03a9f4 ;
+clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0% 100%) ;
+animation: wave 2s ease-in-out infinite ;
+}
+@keyframes wave {
+0%, 100% {
+clip-path: polygon(0 36%, 19% 47%, 36% 54%, 51% 60%, 73% 60%, 88% 54%, 100% 49%, 100% 100%, 0 100%);
+}
+50% {
+clip-path: polygon(0 36%, 16% 59%, 39% 60%, 58% 55%, 71% 48%, 89% 40%, 100% 33%, 100% 100%, 0 100%);
+}
+}
+</style></head><body><div class="wave"><h2>Wave</h2><h2>Wave</h2></div></body></html>
