@@ -209,7 +209,13 @@ def main
 
 	while files = get_files.tap(&:sort!)
 		files.each do |file|
-			mtime, w = File.mtime(file), STDOUT.winsize[1]
+			begin
+				mtime = File.mtime(file)
+			rescue Errno::ENOENT
+				next
+			end
+
+			w = STDOUT.winsize[1]
 
 			if (mtime_i = mtime.to_i) > updated_at# || File.basename(file) == 'test.html.erb'
 				sleep 0.125
