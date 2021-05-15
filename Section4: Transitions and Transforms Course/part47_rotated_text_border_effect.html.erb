@@ -1,0 +1,107 @@
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale:1">
+	<title>Rotated Text Border Effect</title>
+
+	<style>
+		body {
+			margin: 0 ;
+			padding: 0 ;
+			height: 100vh ;
+			display: flex ;
+			justify-content: center ;
+			align-items: center ;
+			background-color: #222 ;
+		}
+
+		.box {
+			position: relative ;
+			width: 200px ;
+			height: 200px ;
+			box-sizing: border-box ;
+			background-color: #606 ;
+			color: #fff ;
+		}
+
+		.box h1 {
+			margin: 0 ;
+			padding: 0 ;
+			color: #fff ;
+			position: absolute ;
+			top: 50% ;
+			left: 50% ;
+			transform: translate(-50%, -50%) ;
+		}
+
+		.box span {
+			color: #58c747 ;
+			font-size: 30px ;
+		}
+
+		.box::before, .box::after, .rotated::before, .rotated::after {
+			content: '' ;
+			position: absolute ;
+			top: 0 ;
+			left: 0 ;
+			width: 100% ;
+			height: 100% ;
+			box-sizing: border-box ;
+			transition: 0.5s ;
+		}
+
+		.box::before, .rotated::before {
+				border-top: 4px solid #58c747 ;
+				border-bottom: 4px solid #58c747 ;
+				transform: scaleX(0) ;
+		}
+
+		.box::after, .rotated::after {
+				border-left: 4px solid #58c747 ;
+				border-right: 4px solid #58c747 ;
+				transform: scaleY(0) ;
+		}
+
+		.rotated {
+			position: absolute ;
+			width: 100% ;
+			height: 100% ;
+			display: block ;
+			background-color: #606 ;
+			transform: rotate(45deg) ;
+			box-sizing: border-box ;
+		}
+
+		.box:hover::before {
+			/* transition-delay: 0.5s ; */
+			transform: scaleX(1) ;
+		}
+
+		.box:hover::after {
+			transition-delay: 0.5s ;
+			transform: scaleY(1) ;
+		}
+
+		.box:hover .rotated::before {
+			transform: scaleX(1) ;
+			transition-delay: 1s ;
+		}
+
+		.box:hover .rotated::after {
+			transform: scaleY(1) ;
+			transition-delay: 1.5s ;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="box">
+		<span class="rotated"></span>
+		<h1>
+			CSS<br>
+			<span>Border</span><br>
+			Hover<br>
+			Effect
+		</h1>
+
+	</div>
+</body>
