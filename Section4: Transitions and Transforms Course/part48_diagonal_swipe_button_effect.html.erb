@@ -1,0 +1,71 @@
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale:1">
+	<title>Diagonal Swipe Button Effect</title>
+
+	<style>
+		:root {
+			--purple: #250e74 ;
+		}
+
+		body {
+			margin: 0 ;
+			padding: 0 ;
+			height: 100vh ;
+			display: flex ;
+			justify-content: center ;
+			align-items: center ;
+		}
+
+		a {
+			text-decoration: none ;
+			position: relative ;
+			width: 250px ;
+			height: 80px ;
+			text-align: center ;
+			line-height: 80px ;
+			font-size: 24px ;
+			color: var(--purple) ;
+			border: 4px solid var(--purple) ;
+			letter-spacing: 3px ;
+			text-transform: uppercase ;
+			overflow: hidden ;
+			transition: 0.5s ;
+		}
+
+		a::before, a::after {
+			content: '' ;
+			position: absolute ;
+			top: 0 ;
+			bottom: 0 ;
+			left: 0 ;
+			right: 0 ;
+			border-top: 40px solid var(--purple) ;
+			border-bottom: 40px solid var(--purple) ;
+			transition: 0.5s ;
+			z-index: -1 ;
+		}
+
+		a::before {
+			border-right: 40px solid transparent ;
+			transform: translateX(-100%) ;
+		}
+
+		a::after {
+			border-left: 40px solid transparent ;
+			transform: translateX(100%) ;
+		}
+
+		a:hover::before, a:hover::after {
+			transform: translateX(0) ;
+		}
+
+		a:hover {
+			color: #fff ;
+		}
+	</style>
+</head>
+
+<body>
+	<a href="#">Button</a>
+</body>
